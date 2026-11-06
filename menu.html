@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title>돈까스에 빠지다 - 공식 메뉴 안내</title>
+  <meta name="description" content="돈까스에 빠지다 공식 다국어 메뉴판 및 브랜드 안내">
+  <meta name="theme-color" content="#1a7a4c">
+
+  <!-- 공통 웹 폰트 (한국어, 영어, 일본어, 중국어 간/번체, 베트남어 전 언어 굵기 및 시각적 일관성 확보) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- 1. 수성푸드 오리지널 CSS 리셋 & 레이아웃 -->
+  <link rel="stylesheet" href="sian-reset.css">
+  <link rel="stylesheet" href="sian-layout.css">
+  <!-- 2. PC 모바일 레이아웃 고정 & 브랜드 전용 오버라이드 CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-ko">
+
+  <!-- ==============================================
+       1. 고정 헤더 (sub-header)
+       ============================================== -->
+  <header class="sub-header">
+    <div class="header-left" id="headerHomeBtn">
+      <span class="brand-header-title" id="headerStoreName">돈까스에 빠지다</span>
+    </div>
+
+    <div class="sub-header-tools">
+      <!-- 다국어 전환기 (한국어 -> 영어 -> 일본어 -> 중국어 -> 베트남어) -->
+      <div class="lang-switcher" id="langSwitcher">
+        <button type="button" class="lang-chip" id="langChipBtn" aria-haspopup="true" aria-expanded="false">
+          <span class="lang-flag-wrap" id="currentLangFlag"></span>
+          <span id="currentLangLabel">KO</span>
+          <svg viewBox="0 0 10 6">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" fill="none" />
+          </svg>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <!-- JS 동적 생성 -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==============================================
+       2. 메인 컨텐츠 랩퍼 (store_all_wrap: PC에서도 모바일 뷰 500px 고정)
+       ============================================== -->
+  <section class="store_all_wrap">
+
+    <!-- A. 상단 브랜드 소개 카드 (주소, 전화번호, 영업시간, 휴무일, 지점명 제외) -->
+    <div class="desktop-top-row store">
+      <div class="store-info-card">
+        <div class="store-cat-chip">
+          <span class="dot"></span>
+          <span id="storeCategoryText">퓨전 음식</span>
+        </div>
+
+        <h1>
+          <span id="storeTitleName">돈까스에 빠지다</span>
+          <span class="sub-name" id="storeSubName" style="display:none;"></span>
+        </h1>
+
+        <div class="store-full-desc rich-content">
+          <p id="storeDescText">
+            돈까스에 빠지다는 경양식 돈까스와 한상 메뉴, 우동, 모밀, 떡볶이 등을 함께 즐길 수 있는 돈까스 전문점입니다. 바삭한 돈까스와 다양한 곁들임 메뉴가 준비되어 있어, 혼밥, 가족 식사, 간단한 점심 식사에 잘 어울립니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- B. 스티키 카테고리 탭 네비게이션 (section-nav-wrapper & 좌우 화살표 버튼) -->
+    <div class="section-nav-wrapper" id="sectionNavWrapper">
+      <button type="button" class="nav-arrow-btn nav-arrow-left" id="navArrowLeft" aria-label="이전 카테고리" style="display: none;">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <nav class="section-nav" id="sectionNav">
+        <!-- JS 동적 생성 (전체, 시그니처 메뉴, 세트 메뉴, 단품 메뉴, 음료 · 주류) -->
+      </nav>
+      <button type="button" class="nav-arrow-btn nav-arrow-right" id="navArrowRight" aria-label="다음 카테고리" style="display: none;">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- C. 메뉴 컨텐츠 영역 (desktop-content) -->
+    <div class="desktop-content" id="menuSectionsContainer">
+      <!-- JS 동적 생성 -->
+    </div>
+
+    <!-- D. 푸터 (Footer) -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand" id="footerBrand">돈까스에 빠지다</div>
+        <p>Premium Handcrafted Pork Cutlet Brand</p>
+        <p>© 2026 돈까스에 빠지다. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </section><!-- // store_all_wrap -->
+
+  <!-- ==============================================
+       3. 메뉴 상세 정보 모달
+       ============================================== -->
+  <div class="modal-overlay" id="menuModalOverlay">
+    <div class="modal-card">
+      <button class="close-modal-btn" id="closeModalBtn" aria-label="닫기">✕</button>
+      <div class="modal-photo-wrap" id="modalPhotoWrap">
+        <img class="modal-photo" id="modalPhoto" src="" alt="메뉴 사진">
+      </div>
+      <div class="modal-content-body">
+        <span class="modal-tag" id="modalCatTag">시그니처 메뉴</span>
+        <h2 class="modal-title" id="modalTitle">메뉴명</h2>
+        <span class="modal-title-kr" id="modalTitleKr" style="display:none;"></span>
+        <p class="modal-desc" id="modalDesc">메뉴 설명</p>
+        <div class="modal-price-box">
+          <span class="modal-price-label" id="modalPriceLabel">가격</span>
+          <span class="modal-price-val" id="modalPriceVal">9,500원</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 스크립트 연결 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

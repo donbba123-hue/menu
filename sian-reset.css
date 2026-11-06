@@ -1,0 +1,629 @@
+﻿
+/* 1. 디자인 시스템 CSS 변수 (Custom Properties) */
+html {
+	word-break: normal;
+	overflow-wrap: anywhere;
+}
+:root {
+  --color-primary:        #2563eb;
+  --color-primary-hover:  #1d4ed8;
+  --color-secondary:      #64748b;
+  --color-success:        #16a34a;
+  --color-warning:        #d97706;
+  --color-danger:         #dc2626;
+  --color-info:           #0891b2;
+
+  /* 단색 컬러 (White, Black) */
+  --color-white:          #ffffff;
+  --color-black:          #0a0a0a;
+
+  /* 그레이스케일 팔레트 (단계별 회색) */
+  --color-gray-50:   #f9fafb;
+  --color-gray-100:  #f3f4f6;
+  --color-gray-200:  #e5e7eb;
+  --color-gray-300:  #d1d5db;
+  --color-gray-400:  #9ca3af;
+  --color-gray-500:  #6b7280;
+  --color-gray-600:  #4b5563;
+  --color-gray-700:  #374151;
+  --color-gray-800:  #1f2937;
+  --color-gray-900:  #111827;
+
+
+  /* 테마 배경 및 텍스트 기본 색상 */
+  --color-bg:             var(--color-white);
+  --color-bg-subtle:      var(--color-gray-50);
+  --color-surface:        var(--color-white);
+  --color-border:         var(--color-gray-200);
+  --color-text:           var(--color-gray-900);
+  --color-text-muted:     var(--color-gray-500);
+  --color-text-on-primary: var(--color-white);
+
+  /* 타이포그래피 (폰트 패밀리) */
+
+  --font-sans: 'Noto Sans KR', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+
+  --text-xs:      0.75rem;    /* 12px (초소형 텍스트) */
+  --text-sm:      0.875rem;   /* 14px (작은 텍스트) */
+  --text-base:    1rem;       /* 16px (본문 기본 크기) */
+  --text-lg:      1.125rem;   /* 18px (중간 제목/강조) */
+  --text-xl:      1.25rem;    /* 20px (소제목) */
+  --text-2xl:     1.5rem;     /* 24px (섹션 제목) */
+  --text-3xl:     1.875rem;   /* 30px (대제목) */
+  --text-4xl:     2.25rem;    /* 36px (메인 타이틀) */
+  --text-5xl:     3rem;       /* 48px (디스플레이 타이틀) */
+
+  --font-normal:  400;
+  --font-medium:  500;
+  --font-semibold: 600;
+  --font-bold:    700;
+
+  --leading-tight:  1.25;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose:  2;
+
+  /* 공통 여백 및 간격 시스템 (Spacing) */
+  --space-0:   0;
+  --space-px:  1px;
+  --space-1:   0.25rem;   /* 4px 여백 */
+  --space-2:   0.5rem;    /* 8px 여백 */
+  --space-3:   0.75rem;   /* 12px 여백 */
+  --space-4:   1rem;      /* 16px 여백 */
+  --space-5:   1.25rem;   /* 20px 여백 */
+  --space-6:   1.5rem;    /* 24px 여백 */
+  --space-8:   2rem;      /* 32px 여백 */
+  --space-10:  2.5rem;    /* 40px 여백 */
+  --space-12:  3rem;      /* 48px 여백 */
+  --space-16:  4rem;      /* 64px 여백 */
+  --space-20:  5rem;      /* 80px 여백 */
+  --space-24:  6rem;      /* 96px 여백 */
+
+  /* 모서리 곡률 (Border Radius) */
+  --radius-none: 0;
+  --radius-sm:   0.25rem;
+  --radius-md:   0.375rem;
+  --radius-lg:   0.5rem;
+  --radius-xl:   0.75rem;
+  --radius-2xl:  1rem;
+  --radius-full: 9999px;
+
+  /* 박스 그림자 효과 (Box Shadow) */
+  --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:  0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.06);
+
+  /* 트랜지션 애니메이션 (Transition Timing) */
+  --duration-fast:   150ms;
+  --duration-base:   200ms;
+  --duration-slow:   300ms;
+  --ease-default:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:         cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:        cubic-bezier(0, 0, 0.2, 1);
+  --transition:      var(--duration-base) var(--ease-default);
+
+  /* z-index 레이어 계층 구조 */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-dropdown: 100;
+  --z-sticky:  200;
+  --z-overlay: 300;
+  --z-modal:   400;
+  --z-toast:   500;
+  --z-tooltip: 600;
+
+  /* 반응형 브레이크포인트 (Breakpoints) */
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1280px;
+  --container-2xl: 1536px;
+}
+
+
+
+html:lang(ko), body.lang-ko {
+  --font-sans: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+}
+
+html:lang(en), body.lang-en {
+  --font-sans: 'Noto Sans', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html:lang(ja), body.lang-ja {
+  --font-sans: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+}
+
+html:lang(zh-CN), body.lang-zh-CN {
+  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+html:lang(zh-TW), body.lang-zh-TW {
+  --font-sans: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
+html:lang(vi), body.lang-vi {
+  --font-sans: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+
+
+/* 4. HTML / Body 기본 문서 설정 (스크롤, 줄간격, 폰트) */
+:root {
+  color-scheme: light only;
+}
+
+
+:root {
+  --green-deep: #006f46;
+  --green-bright: #29a67a;
+  --green-lime: #8cbf3b;
+  --lime: #9ccc59;
+  --blue-sky: #35a5de;
+  --blue-deep: #3781dd;
+  --teal: #00a199;
+  --yellow-lime: #dadf00;
+  --white: #ffffff;
+  --white-90: rgba(255,255,255,0.92);
+  --white-70: rgba(255,255,255,0.70);
+  --white-60: rgba(255,255,255,0.60);
+  --white-40: rgba(255,255,255,0.40);
+  --white-15: rgba(255,255,255,0.15);
+  --white-08: rgba(255,255,255,0.08);
+
+--black: #000000;
+--black-90: rgba(0,0,0,0.92);
+--black-70: rgba(0,0,0,0.70);
+--black-40: rgba(0,0,0,0.40);
+--black-15: rgba(0,0,0,0.15);
+--black-08: rgba(0,0,0,0.08);
+--black-04: rgba(0,0,0,0.04);
+--grey-900: #191F28;
+--grey-800: #333D4B;
+--grey-700: #4E5968;
+--grey-600: #6B7684;
+--grey-500: #8B95A1;
+--grey-400: #B0B8C1;
+--grey-300: #D1D6DB;
+--grey-200: #E5E8EB;
+--grey-100: #F2F4F6;
+--grey-50:  #F9FAFB;
+
+  --dark: #0a1a0f;
+  --glass: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-hover: rgba(255,255,255,0.14);
+  --transition: cubic-bezier(0.22, 1, 0.36, 1);
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+
+
+
+/* 5. 텍스트 가독성 및 폰트 렌더링 최적화 */
+
+/* 텍스트 줄바꿈 및 선택 제어 */
+*,
+*::before,
+*::after { margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+/* 서체 부드러움 및 안티앨리어싱 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;       /* 웹킷 브라우저 폰트 안티앨리어싱 */
+  -moz-osx-font-smoothing: grayscale;        /* 맥OS 서체 렌더링 최적화 */
+  text-rendering: optimizeLegibility;        /* 텍스트 가독성 우선 렌더링 */
+}
+
+
+
+html {
+  font-size: 100%; /* 브라우저 기본 폰트 크기 100% 유지 */
+  line-height: var(--leading-normal);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  tab-size: 4;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans) !important;
+  font-size:clamp(16px, 2.5vw, 25px);
+  font-weight: var(--font-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+-webkit-tap-highlight-color: transparent; 
+min-height: 100vh;
+}
+
+
+
+
+
+
+
+/* 6. 미디어 태그 리셋 (이미지, 비디오, 캔버스 등) */
+/* 이미지 반응형 블록 처리 및 최대 너비 제한 */
+
+img,
+video {
+  height: auto;
+}
+
+/* 7. 테이블 태그 테두리 및 여백 초기화 */
+ol,
+ul {
+  list-style: none;
+}
+
+/* 8. 목록 태그 리셋 (ul, ol 리스트 마커 제거) */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* 9. 링크 태그 리셋 (a 밑줄 및 텍스트 색상 상속) */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* 10. 폼 컨트롤 리셋 (버튼, 인풋, 셀렉트, 텍스트에어리어) */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+  border: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.padding-inline-none {padding-inline:0px !important;}
+
+
+/* 11. 제목 태그 타이포그래피 (h1 ~ h6 크기 및 줄간격) */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 본문 문단 여백 (p) */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  height: 0;
+  color: inherit;
+  overflow: visible;
+}
+
+/* 인라인 코드 및 프리포맷 블록 (code, pre) */
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* 강조 텍스트 굵기 (strong, b) */
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* 수평 구분선 리셋 (hr) */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+/* 작은 안내 텍스트 (small) */
+[hidden] {
+  display: none;
+}
+
+
+/* SVG 아이콘 수직 정렬 */
+h1 { font-size: var(--text-4xl); font-weight: var(--font-bold);    line-height: var(--leading-tight); }
+h2 { font-size: var(--text-3xl); font-weight: var(--font-bold);    line-height: var(--leading-tight); }
+h3 { font-size: var(--text-2xl); font-weight: var(--font-semibold); line-height: var(--leading-snug); }
+h4 { font-size: var(--text-xl);  font-weight: var(--font-semibold); line-height: var(--leading-snug); }
+h5 { font-size: var(--text-lg);  font-weight: var(--font-medium);  line-height: var(--leading-normal); }
+h6 { font-size: var(--text-base); font-weight: var(--font-medium); line-height: var(--leading-normal); }
+
+p {
+  line-height: var(--leading-relaxed);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+strong, b {
+  font-weight: var(--font-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--text-sm);
+}
+
+mark {
+  background-color: #fef08a;
+  color: var(--color-black);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-1);
+}
+
+code {
+  background-color: var(--color-gray-100);
+  color: var(--color-danger);
+  border-radius: var(--radius-sm);
+  padding: 0.1em var(--space-1);
+  font-size: 0.875em;
+}
+
+pre {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  overflow-x: auto;
+  line-height: var(--leading-relaxed);
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: var(--space-4);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+
+/* 12. CSS Grid 레이아웃 유틸리티 클래스 */
+
+
+/* 2열 그리드 레이아웃 (.grid-cols-2) */
+.grid        { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* 여백 자동 정렬 유틸리티 (Margin Auto) */
+.mt-auto { margin-top: auto; }
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+.mx-auto { margin-inline: auto; }
+
+/* 표시 형태 유틸리티 (Display Block/Inline) */
+.block        { display: block; }
+.inline       { display: inline; }
+.inline-block { display: inline-block; }
+.hidden       { display: none; }
+
+/* 위치 지정 유틸리티 (Position Relative/Absolute) */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+.sticky   { position: sticky; }
+
+/* 너비/높이 100% 유틸리티 (.w-full, .h-full) */
+.w-full  { width: 100%; }
+.h-full  { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+.w-fit   { width: fit-content; }
+
+/* 넘침 제어 유틸리티 (Overflow Hidden/Auto) */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto   { overflow: auto; }
+.overflow-x-auto { overflow-x: auto; }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 접근성 지원: 시각적으로 숨기고 스크린리더만 읽기 (.sr-only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+/* 키보드 포커스 링 스타일 (:focus-visible) */
+
+
+
+/* 포커스 아웃라인 기본 스타일 */
+
+/* 포커스 외곽선 색상 및 오프셋 */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 마우스 클릭 시 불필요한 아웃라인 제거 */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 접근성: 모션 감소 설정 사용자 대응 (prefers-reduced-motion) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 접근성: 고대비 모드 사용자 대응 (forced-colors) */
+@media (forced-colors: active) {
+  *,
+  *::before,
+  *::after {
+    border-color: ButtonText;
+  }
+}
+
+
+/* 마우스 드래그 선택 영역 배경색 커스텀 (::selection) */
+::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+  color: var(--color-text);
+}
+
+
+/* 웹킷 스크롤바 디자인 커스텀 (::-webkit-scrollbar) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+
+/* 컴포넌트 라운딩 테마 확장 */
+:root {
+  --radius-lg: 28px;
+  --radius-md: 22px;
+--padding:18px 4%;
+}
+
+
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+
+/* 13. Flexbox 레이아웃 유틸리티 클래스 */
+/* 인라인 플렉스 (.inline-flex) */
+.flex        { display: flex; }
+.inline-flex { display: inline-flex; }
+ 
+/* 플렉스 방향 (.col: 세로 배치, .row: 가로 배치) */
+.flex.col    { flex-direction: column; }
+  .flex.row    { flex-direction: row; }  /* 가로 행 배치 */
+ 
+/* 가로 주축 정렬 (justify-content: start, center, end, between) */
+.flex.start   { justify-content: flex-start; }
+.flex.center  { justify-content: center; }
+.flex.right  { justify-content: flex-end; }
+.flex.end     { justify-content: flex-end; }
+.flex.between { justify-content: space-between; }
+.flex.around  { justify-content: space-around; }
+.flex.evenly  { justify-content: space-evenly; }
+ 
+/* 세로 교차축 정렬 (align-items: middle, top, bottom, stretch) */
+.flex.middle   { align-items: center; }
+.flex.top      { align-items: flex-start; }
+.flex.bottom   { align-items: flex-end; }
+  .flex.stretch  { align-items: stretch; }  /* 교차축 높이 늘임 */
+ 
+/* 줄바꿈 제어 (.wrap: 자동 줄바꿈, .nowrap: 한 줄 유지) */
+.flex.wrap     { flex-wrap: wrap; }
+  .flex.nowrap   { flex-wrap: nowrap; }  /* 한 줄 유지 */
+ 
+/* 플렉스 아이템 간격 (.gap-xs, .gap-sm, .gap-md, .gap-lg, .gap-xl) */
+.flex.gap-xs { gap: 4px; }
+.flex.gap-sm { gap: 8px; }
+.flex.gap-md { gap: 16px; }
+.flex.gap-lg { gap: 24px; }
+ 
+/* 플렉스 아이템 확장/고정 비율 유틸리티 */
+  .flex-1    { flex: 1; }           /* 남은 공간 균등 분할 */
+  .flex-none { flex: none; }        /* 고정 크기 유지 */
+  .flex-auto { flex: auto; }        /* 콘텐츠 크기에 맞춰 자동 조절 */
+ 

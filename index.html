@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>돈까스에 빠지다 - 언어 선택 (Select Language)</title>
+  <link rel="stylesheet" href="sian-reset.css">
+  <style>
+    :root {
+      --app-max-width: 500px;
+      --color-primary: #15803d;
+      --color-primary-light: #f0fdf4;
+      --color-primary-border: #bbf7d0;
+      --color-dark: #1e293b;
+      --color-gray: #64748b;
+      --color-light-gray: #f8fafc;
+      --color-border: #e2e8f0;
+      --font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      font-family: var(--font-family);
+      color: var(--color-dark);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .gate-container {
+      width: 100%;
+      max-width: var(--app-max-width);
+      min-height: 100vh;
+      background-color: #ffffff;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* 상단 히어로 & 브랜드 로고 영역 */
+    .gate-hero {
+      padding: 48px 24px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .brand-logo-wrap {
+      width: 220px;
+      max-width: 75%;
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .brand-logo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .gate-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--color-primary-border);
+      margin-bottom: 12px;
+    }
+
+    .gate-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .gate-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 6px;
+      letter-spacing: -0.4px;
+      line-height: 1.35;
+    }
+
+    .gate-subtitle {
+      font-size: 13.5px;
+      color: var(--color-gray);
+      margin: 0;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* 언어 선택 리스트 영역 */
+    .lang-list-wrap {
+      padding: 8px 20px 32px;
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .lang-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: #ffffff;
+      border: 1.5px solid var(--color-border);
+      border-radius: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lang-card:hover {
+      border-color: var(--color-primary);
+      background: #fafdfb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(21, 128, 61, 0.1);
+    }
+
+    .lang-card:active {
+      transform: scale(0.985);
+      background: var(--color-primary-light);
+    }
+
+    .lang-card-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .flag-wrap {
+      width: 36px;
+      height: 25px;
+      border-radius: 4px;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+
+    .flag-wrap svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lang-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .lang-name-main {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.2px;
+    }
+
+    .lang-name-sub {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .lang-card-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      transition: transform 0.18s ease, color 0.18s ease;
+    }
+
+    .lang-card:hover .lang-card-right {
+      color: var(--color-primary);
+      transform: translateX(3px);
+    }
+
+    .arrow-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* 하단 푸터 */
+    .gate-footer {
+      background: #fafbfc;
+      border-top: 1px solid #f1f5f9;
+      padding: 24px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .gate-footer-brand {
+      font-weight: 700;
+      color: #111827;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .gate-footer-copy {
+      color: #9ca3af;
+      font-size: 11.5px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 500px) {
+      .gate-container {
+        box-shadow: none;
+      }
+      .gate-hero {
+        padding: 40px 20px 24px;
+      }
+      .brand-logo-wrap {
+        width: 190px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="gate-container">
+
+    <!-- 상단 히어로: 로고 & 언어 선택 안내 -->
+    <header class="gate-hero">
+      <div class="brand-logo-wrap">
+        <img class="brand-logo-img" src="images/brand_logo.png" alt="돈빠 - 돈까스에 빠지다 로고">
+      </div>
+      <div class="gate-badge">
+        <span class="gate-badge-dot"></span>
+        <span>수제 돈까스 전문 브랜드</span>
+      </div>
+      <h1 class="gate-title">언어를 선택해 주세요</h1>
+      <p class="gate-subtitle">Please select your preferred language</p>
+    </header>
+
+    <!-- 언어 선택 카드 리스트 (6개 언어) -->
+    <nav class="lang-list-wrap" aria-label="언어 선택 메뉴">
+
+      <!-- 1. 한국어 (Korean) -->
+      <a href="menu.html?lang=ko" class="lang-card" data-lang="ko" role="button">
+        <div class="lang-card-left">
+          <div class="flag-wrap">
+            <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="-72 -48 144 96"><path fill="#fff" d="M-72-48v96H72v-96z"/><g stroke="#000" stroke-width="4"><path d="M-34.946-37.72-48.26-17.75m4.992 3.328 13.313-19.97m4.992 3.329-13.312 19.969m63.236 42.157 6.101-9.152m1.11-1.664 6.101-9.153m4.993 3.328-6.102 9.153m-1.11 1.664-6.101 9.152m4.992 3.329 6.102-9.153m1.11-1.664 6.1-9.153M-48.259 17.75l13.313 19.97m4.992-3.329-6.102-9.152m-1.109-1.664-6.102-9.153m4.993-3.328 13.312 19.97m63.236-42.158-6.101-9.153m-1.11-1.664-6.101-9.152m4.992-3.328 13.313 19.969m4.992-3.328-6.102-9.153m-1.11-1.664-6.1-9.153"/></g><path fill="#cd2e3a" d="M9.985 6.656A18 18 0 1 1-19.97-13.313a24 24 0 1 1 39.938 26.626"/><path fill="#0047a0" d="M0 0a12 12 0 1 1 19.97 13.313 24 24 0 1 1-39.94-26.626A12 12 0 1 0 0 0"/></svg>
+          </div>
+          <div class="lang-info">
+            <span class="lang-name-main">한국어</span>
+            <span class="lang-name-sub">Korean</span>
+          </div>
+        </div>
+        <div class="lang-card-right">
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </div>
+      </a>
+
+      <!-- 2. English (영어) -->
+      <a href="menu.html?lang=en" class="lang-card" data-lang="en" role="button">
+        <div class="lang-card-left">
+          <div class="flag-wrap">
+            <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1235" height="650" viewBox="0 0 7410 3900"><path fill="#b31942" d="M0 0h7410v3900H0"/><path stroke="#FFF" stroke-width="300" d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"/><path fill="#0a3161" d="M0 0h2964v2100H0"/><g fill="#FFF"><g id="d"><g id="c"><g id="e"><g id="b"><path id="a" d="m247 90 70.534 217.082-184.66-134.164h228.253L176.466 307.082z"/><use xlink:href="#a" y="420"/><use xlink:href="#a" y="840"/><use xlink:href="#a" y="1260"/></g><use xlink:href="#a" y="1680"/></g><use xlink:href="#b" x="247" y="210"/></g><use xlink:href="#c" x="494"/></g><use xlink:href="#d" x="988"/><use xlink:href="#c" x="1976"/><use xlink:href="#e" x="2470"/></g></svg>
+          </div>
+          <div class="lang-info">
+            <span class="lang-name-main">English</span>
+            <span class="lang-name-sub">영어</span>
+          </div>
+        </div>
+        <div class="lang-card-right">
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </div>
+      </a>
+
+      <!-- 3. 日本語 (일본어) -->
+      <a href="menu.html?lang=ja" class="lang-card" data-lang="ja" role="button">
+        <div class="lang-card-left">
+          <div class="flag-wrap">
+            <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><path fill="#fff" d="M0 0h900v600H0z"/><circle fill="#bc002d" cx="450" cy="300" r="180"/></svg>
+          </div>
+          <div class="lang-info">
+            <span class="lang-name-main">日本語</span>
+            <span class="lang-name-sub">Japanese / 日本语</span>
+          </div>
+        </div>
+        <div class="lang-card-right">
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </div>
+      </a>
+
+      <!-- 4. 中文 (简体) (중국어 간체) -->
+      <a href="menu.html?lang=zh-CN" class="lang-card" data-lang="zh-CN" role="button">
+        <div class="lang-card-left">
+          <div class="flag-wrap">
+            <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 600"><path fill="#EE1C25" d="M0 0h900v600H0"/><g transform="matrix(3 0 0 3 150 150)"><path id="zh_s" fill="#FF0" d="m0-30 17.634 54.27-46.166-33.54h57.064l-46.166 33.54Z"/></g><use xlink:href="#zh_s" transform="rotate(23.036 2.784 766.082)"/><use xlink:href="#zh_s" transform="rotate(45.87 38.201 485.396)"/><use xlink:href="#zh_s" transform="rotate(69.945 29.892 362.328)"/><use xlink:href="#zh_s" transform="rotate(20.66 -590.66 957.955)"/></svg>
+          </div>
+          <div class="lang-info">
+            <span class="lang-name-main">中文 (简体)</span>
+            <span class="lang-name-sub">Simplified Chinese</span>
+          </div>
+        </div>
+        <div class="lang-card-right">
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </div>
+      </a>
+
+      <!-- 5. 中文 (繁體) (중국어 번체) -->
+      <a href="menu.html?lang=zh-TW" class="lang-card" data-lang="zh-TW" role="button">
+        <div class="lang-card-left">
+          <div class="flag-wrap">
+            <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 120 80"><path fill="#fe0000" d="M0 0h120v80H0z"/><path fill="#000094" d="M0 0h60v40H0z"/><path id="a" fill="#fff" d="m30 5 4 15-4 15-4-15zM15 20l15 4 15-4-15-4z"/><use href="#a" transform="rotate(30 30 20)"/><use href="#a" transform="rotate(60 30 20)"/><circle cx="30" cy="20" r="8" fill="#fff" stroke="#000094"/></svg>
+          </div>
+          <div class="lang-info">
+            <span class="lang-name-main">中文 (繁體)</span>
+            <span class="lang-name-sub">Traditional Chinese</span>
+          </div>
+        </div>
+        <div class="lang-card-right">
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </div>
+      </a>
+
+      <!-- 6. Tiếng Việt (베트남어) -->
+      <a href="menu.html?lang=vi" class="lang-card" data-lang="vi" role="button">
+        <div class="lang-card-left">
+          <div class="flag-wrap">
+            <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 30 20"><path fill="red" d="M0 0h30v20H0z"/><path fill="#ffeb00" d="m15 4-3.53 10.85 9.24-6.7H9.29l9.24 6.7z"/></svg>
+          </div>
+          <div class="lang-info">
+            <span class="lang-name-main">Tiếng Việt</span>
+            <span class="lang-name-sub">Vietnamese / 베트남어</span>
+          </div>
+        </div>
+        <div class="lang-card-right">
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </div>
+      </a>
+
+    </nav>
+
+    <!-- 하단 푸터 -->
+    <footer class="gate-footer">
+      <div class="gate-footer-brand">돈까스에 빠지다</div>
+      <p class="gate-footer-copy">Premium Handcrafted Pork Cutlet Brand</p>
+      <p class="gate-footer-copy">© 2026 돈까스에 빠지다. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+</body>
+
+</html>
+
