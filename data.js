@@ -199,12 +199,12 @@
         "zh-TW": "Donppa 半桌套餐"
       },
       "descs": {
-        "ko": "정갈하게 차려낸 1인 정식 메뉴로 바삭한 돈까스와 신선한 샐러드, 밥과 국이 깔끔하게 어우러집니다.",
-        "en": "A neat individual set featuring golden crisp cutlet, fresh salad, rice, and soup.",
-        "ja": "サクサクのトンカツと新鮮なサラダ、ご飯とスープが調和した端正な1人前御膳。",
-        "vi": "Khay cơm phần 1 người thanh lịch với thịt heo chiên giòn, salad tươi, cơm dẻo và canh ấm.",
-        "zh-CN": "精致的一人定食，香脆炸猪排搭配新鲜沙拉、米饭和清汤。",
-        "zh-TW": "可選擇一塊炸豬排及一款麵食搭配享用的套餐。"
+        "ko": "바삭한 돈까스와 면을 취향에 따라 선택하는 돈빠의 베스트 셀러",
+        "en": "Donppa's best seller featuring crispy pork cutlet paired with your choice of noodles.",
+        "ja": "サクサクのとんかつとお好みの麺を選べるドンパのベストセラー御膳。",
+        "vi": "Món bán chạy nhất của Donppa với thịt heo chiên giòn kết hợp cùng món mì tự chọn theo sở thích.",
+        "zh-CN": "可按个人喜好自选炸猪排与面类的Donppa畅销招牌套餐。",
+        "zh-TW": "可依個人喜好自選炸豬排與麵食享用的Donppa人氣暢銷套餐。"
       }
     },
     {
@@ -720,43 +720,20 @@
       "image": "",
       "isSig": false,
       "names": {
-        "ko": "테라(500ml)",
-        "en": "Terra Beer (500ml)",
-        "ja": "テラビール (500ml)",
-        "vi": "Bia Terra (500ml)",
-        "zh-CN": "泰拉啤酒（500ml）",
-        "zh-TW": "泰拉啤酒（500ml）"
+        "ko": "맥주",
+        "en": "Beer",
+        "ja": "ビール",
+        "vi": "Bia",
+        "zh-CN": "啤酒",
+        "zh-TW": "啤酒"
       },
       "descs": {
-        "ko": "청정맥아 100% 리얼탄산 맥주",
-        "en": "Crisp Korean lager made from 100% clean malt",
-        "ja": "爽快な喉越しの韓国定番ラガービール",
-        "vi": "Bia tươi mạch nha sạch sảng khoái",
-        "zh-CN": "100%纯净麦芽清爽碳酸啤酒",
-        "zh-TW": "100%纯净麦芽清爽碳酸啤酒"
-      }
-    },
-    {
-      "id": 1275,
-      "catKey": "drink",
-      "price": "4,500원",
-      "image": "",
-      "isSig": false,
-      "names": {
-        "ko": "카스(500ml)",
-        "en": "Cass Beer (500ml)",
-        "ja": "カスビール (500ml)",
-        "vi": "Bia Cass Fresh (500ml)",
-        "zh-CN": "凯狮啤酒（500ml）",
-        "zh-TW": "凱獅啤酒（500ml）"
-      },
-      "descs": {
-        "ko": "톡 쏘는 상쾌함이 살아있는 대한민국 대표 맥주",
-        "en": "Fresh crisp draft-style bottled lager",
-        "ja": "キレのある爽快な喉越し",
-        "vi": "Bia chai tươi quốc dân mát lạnh",
-        "zh-CN": "口感畅快的韩国代表性拉格啤酒",
-        "zh-TW": "口感畅快的韩国代表性拉格啤酒"
+        "ko": "시원하고 청량한 맥주",
+        "en": "Refreshing chilled beer",
+        "ja": "爽快な喉越しの冷たいビール",
+        "vi": "Bia ướp lạnh sảng khoái",
+        "zh-CN": "清凉爽口的啤酒",
+        "zh-TW": "清涼爽口的啤酒"
       }
     },
     {
@@ -766,66 +743,20 @@
       "image": "",
       "isSig": false,
       "names": {
-        "ko": "참이슬",
-        "en": "Chamisul Soju",
-        "ja": "チャミスル",
-        "vi": "Rượu Soju Chamisul",
-        "zh-CN": "真露烧酒 (Chamisul)",
-        "zh-TW": "真露（Chamisul）"
+        "ko": "소주",
+        "en": "Soju",
+        "ja": "焼酎",
+        "vi": "Rượu Soju",
+        "zh-CN": "烧酒",
+        "zh-TW": "燒酒"
       },
       "descs": {
-        "ko": "깨끗하고 부드러운 대한민국 1등 소주",
+        "ko": "깔끔하고 부드러운 소주",
         "en": "Clean and smooth traditional Korean soju",
-        "ja": "澄んだまろやかな味わいの定番ソジュ",
-        "vi": "Rượu soju truyền thống êm dịu nổi tiếng",
-        "zh-CN": "纯净温润的韩国第一烧酒品牌",
-        "zh-TW": "纯净温润的韩国第一烧酒品牌"
-      }
-    },
-    {
-      "id": 1272,
-      "catKey": "drink",
-      "price": "4,500원",
-      "image": "",
-      "isSig": false,
-      "names": {
-        "ko": "참소주",
-        "en": "Charm Soju",
-        "ja": "チャムソジュ",
-        "vi": "Rượu Soju Charm",
-        "zh-CN": "Charm烧酒",
-        "zh-TW": "Cham燒酒"
-      },
-      "descs": {
-        "ko": "깔끔하고 시원한 목넘김의 소주",
-        "en": "Smooth and clean local favorite soju",
-        "ja": "すっきりした喉越しの焼酎",
-        "vi": "Rượu soju ngọt dịu êm ái",
-        "zh-CN": "清爽顺口的特色风味烧酒",
-        "zh-TW": "清爽顺口的特色风味烧酒"
-      }
-    },
-    {
-      "id": 1273,
-      "catKey": "drink",
-      "price": "4,500원",
-      "image": "",
-      "isSig": false,
-      "names": {
-        "ko": "법주막걸리",
-        "en": "Beopju Makgeolli",
-        "ja": "法酒マッコリ",
-        "vi": "Rượu gạo Beopju Makgeolli",
-        "zh-CN": "法酒马格利米酒",
-        "zh-TW": "法酒馬格利酒"
-      },
-      "descs": {
-        "ko": "구수하고 부드러운 전통 발효 쌀막걸리",
-        "en": "Smooth and creamy traditional fermented Korean rice wine",
-        "ja": "まろやかでコクのある伝統米マッコリ",
-        "vi": "Rượu gạo lên men truyền thống thơm bùi sánh mịn",
-        "zh-CN": "醇香顺滑的传统发酵米酒",
-        "zh-TW": "醇香顺滑的传统发酵米酒"
+        "ja": "澄んだすっきりとした口当たりの焼酎",
+        "vi": "Rượu soju truyền thống êm dịu",
+        "zh-CN": "纯净温润的韩国传统烧酒",
+        "zh-TW": "純淨溫潤的韓國傳統燒酒"
       }
     }
   ]
