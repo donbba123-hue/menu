@@ -1,4 +1,4 @@
-﻿/* ========================================================
+/* ========================================================
    돈까스에 빠지다 (DON-PPA) - 공식 모바일 뷰 스타일시트
    
    [주요 구성]
@@ -8,8 +8,10 @@
    ======================================================== */
 
 :root {
-  --app-max-width: 500px;              /* PC 화면에서도 고정되는 모바일 뷰포트 너비 */
-  --color-primary: #1a7a4c;            /* 시그니처 포레스트 그린 */
+  --app-max-width: 500px;
+  /* PC 화면에서도 고정되는 모바일 뷰포트 너비 */
+  --color-primary: #1a7a4c;
+  /* 시그니처 포레스트 그린 */
   --color-primary-hover: #14633d;
   --color-primary-light: #e8f5ee;
 }
@@ -144,7 +146,7 @@ body {
 }
 
 .lang-chip svg.chevron-icon,
-.lang-chip > svg {
+.lang-chip>svg {
   width: 9px !important;
   height: 6px !important;
   fill: currentColor !important;
@@ -154,7 +156,7 @@ body {
 }
 
 .lang-switcher.open .lang-chip svg.chevron-icon,
-.lang-switcher.open .lang-chip > svg {
+.lang-switcher.open .lang-chip>svg {
   transform: rotate(180deg) !important;
 }
 
@@ -396,7 +398,8 @@ body {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  justify-content: flex-start !important; /* 항상 flex-start로 정렬하여 좌우 스크롤 시 첫 번째 아이템이 잘리지 않도록 보장 */
+  justify-content: flex-start !important;
+  /* 항상 flex-start로 정렬하여 좌우 스크롤 시 첫 번째 아이템이 잘리지 않도록 보장 */
   align-items: center !important;
   gap: 6px !important;
   padding: 10px 16px !important;
@@ -709,15 +712,19 @@ body .store_all_wrap .menu-list {
 body .store_all_wrap .menu-item {
   display: flex !important;
   flex-direction: row !important;
-  align-items: center !important;
+  flex-wrap: nowrap !important;
+  /* PC 및 모바일 모두 절대 줄바꿈 금지 */
+  align-items: flex-start !important;
+  /* 제목과 가격의 상단 기준선(baseline) 통일 */
   justify-content: space-between !important;
   width: 100% !important;
   box-sizing: border-box !important;
   background: #ffffff !important;
   border: 1px solid #e5e7eb !important;
   border-radius: 12px !important;
-  padding: 13px 15px !important;
-  cursor: default !important; /* 별도추가 및 주류·음료는 클릭 불가 기본 커서 */
+  padding: 14px 16px !important;
+  cursor: default !important;
+  /* 별도추가 및 주류·음료는 클릭 불가 기본 커서 */
   gap: 12px !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
   min-width: 0 !important;
@@ -753,10 +760,12 @@ body .store_all_wrap .menu-item.non-clickable:active {
 
 body .store_all_wrap .menu-item-left {
   display: flex !important;
-  align-items: center !important;
+  align-items: flex-start !important;
   gap: 12px !important;
   flex: 1 1 auto !important;
   min-width: 0 !important;
+  /* 텍스트가 아무리 길어도 가격 영역을 밀어내지 않고 내부 줄바꿈 */
+  width: auto !important;
 }
 
 body .store_all_wrap .menu-thumb {
@@ -782,15 +791,17 @@ body .store_all_wrap .menu-text {
   gap: 3px !important;
   min-width: 0 !important;
   flex: 1 1 auto !important;
+  width: 100% !important;
 }
 
 body .store_all_wrap .menu-name {
-  font-size: 14.5px !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
   color: #111827 !important;
   line-height: 1.35 !important;
   margin: 0 !important;
   word-break: keep-all !important;
+  overflow-wrap: break-word !important;
 }
 
 body .store_all_wrap .menu-name-kr {
@@ -801,37 +812,54 @@ body .store_all_wrap .menu-name-kr {
   margin: 1px 0 2px !important;
   display: block !important;
   word-break: keep-all !important;
+  overflow-wrap: break-word !important;
 }
 
 body .store_all_wrap .menu-desc {
-  font-size: 12px !important;
+  font-size: 12.5px !important;
   font-weight: 400 !important;
   color: #64748b !important;
-  line-height: 1.4 !important;
-  margin: 0 !important;
+  line-height: 1.45 !important;
+  margin: 2px 0 0 !important;
   word-break: keep-all !important;
+  overflow-wrap: break-word !important;
   display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  line-clamp: 2 !important;
+  -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
 }
 
 body .store_all_wrap .menu-item-right {
+  flex: 0 0 auto !important;
   flex-shrink: 0 !important;
-  margin-left: 8px !important;
+  margin-left: 12px !important;
   display: flex !important;
-  align-items: center !important;
+  align-items: flex-start !important;
   justify-content: flex-end !important;
+  text-align: right !important;
+  align-self: flex-start !important;
+  /* 설명 길이가 길어져도 항상 우측 상단 고정 */
+  padding-top: 1px !important;
+  /* 좌측 메뉴명 제목 첫 글자와 완벽한 수평 기준선(baseline) 일치 */
 }
 
+body .store_all_wrap .menu-item .menu-price,
 body .store_all_wrap .menu-price {
-  font-size: 14.5px !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
   color: var(--color-primary) !important;
   white-space: nowrap !important;
   letter-spacing: -0.2px !important;
-  display: block !important;
+  display: inline-block !important;
+  text-align: right !important;
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  flex-basis: auto !important;
+  min-width: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  opacity: 1 !important;
 }
 
 /* ========================================================
@@ -1002,9 +1030,39 @@ body .store_all_wrap .menu-price {
   .store_all_wrap {
     box-shadow: none !important;
   }
-  
+
   .sub-header {
     left: 0 !important;
     transform: none !important;
+  }
+
+  body .store_all_wrap .menu-item {
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    padding: 13px 14px !important;
+  }
+
+  body .store_all_wrap .menu-item-left {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  body .store_all_wrap .menu-item-right {
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+    align-self: flex-start !important;
+    margin-left: 10px !important;
+    padding-top: 1px !important;
+  }
+
+  body .store_all_wrap .menu-item .menu-price,
+  body .store_all_wrap .menu-price {
+    flex-basis: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+    text-align: right !important;
+    font-size: 14.5px !important;
   }
 }
